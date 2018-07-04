@@ -1,7 +1,20 @@
+.weather-wrapper {
+  width: 750rpx;
+  background-color: moccasin;
+  padding-top: 174rpx;
+  padding-bottom: 250rpx;
+}
+
 .temp {
-  margin-top: 300rpx;
   text-align: center;
   font-size: 200rpx;
   line-height: 280rpx;
   opacity: 0.8;
+}
+
+.weather {
+  font-size: 40rpx;
+  text-align: center;
+  line-height: 56rpx;
+  opacity: 0.65;
 }
