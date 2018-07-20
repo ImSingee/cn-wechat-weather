@@ -2,7 +2,7 @@
   <view class="temp">{{ nowTemp }}°</view>
   <view class="weather">{{ nowWeatherZh }}</view>
   <image class="weather-bg" src="/images/{{ nowWeather }}-bg.png" mode="scaleToFill"></image>
-  <view class="weather-today">
+  <view class="weather-today" bindtap="onTapDayWeather">
     <view class="date">{{ todayDate }}</view>
     <view class="weather-temp">{{ todayTemp.minTemp }}° ~ {{ todayTemp.maxTemp }}°</view>
     <image src="/images/arrow.png"></image>

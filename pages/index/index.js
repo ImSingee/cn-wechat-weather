@@ -104,5 +104,10 @@ Page({
       todayTemp: today,
       todayDate
     })
+  },
+  onTapDayWeather() {
+    wx.showToast({
+      title: 'click',
+    })
   }
 })
