@@ -106,8 +106,8 @@ Page({
     })
   },
   onTapDayWeather() {
-    wx.showToast({
-      title: 'click',
+    wx.navigateTo({
+      url: '/pages/list/list',
     })
   }
 })

@@ -1,11 +1,12 @@
 {
-  "pages":[
-    "pages/index/index"
+  "pages": [
+    "pages/index/index",
+    "pages/list/list"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#cbeefd",
     "navigationBarTitleText": "天气小应用",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   }
 }
