@@ -1,2 +1,10 @@
-<!--pages/list/list.wxml-->
-<text>Hello world</text>
+<view class="future-list">
+  <view wx:for="{{ futureWeathers }}" wx:key="id" class="future-item">
+    <view class="future-date">
+      <view class="day">{{ item.day }}</view>
+      <view class="date">{{ item.date }}</view>
+    </view>
+    <view class="future-temp">{{ item.minTemp }}° ~ {{ item.maxTemp }}°</view>
+    <image class="future-icon" src="/images/{{ item.weather }}-icon.png"></image>
+  </view>
+</view>

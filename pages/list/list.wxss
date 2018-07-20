@@ -1,1 +1,42 @@
-/* pages/list/list.wxss */
+.future-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 10rpx;
+}
+.future-item {
+  display: flex;
+  width: 95%;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  padding: 10rpx;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.future-item:last-child {
+  border-bottom: none;
+}
+
+.future-date {
+  display: flex;
+  flex-direction: column;
+}
+
+.future-date .day {
+  font-size: 40rpx;
+}
+
+.future-date .date {
+  font-size: 30rpx;
+  opacity: 0.5;
+}
+
+.future-temp {
+  flex-grow: 1;
+}
+
+.future-icon {
+  width: 60rpx;
+  height: 60rpx;
+}
