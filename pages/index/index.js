@@ -20,7 +20,8 @@ Page({
     nowTemp: 12,
     nowWeather: 'sunny',
     nowWeatherZh: '晴天',
-    bgColor: '#ffffff'
+    bgColor: '#ffffff',
+    futureWeathers: []
   },
   onLoad() {
     this.getNow()
@@ -38,6 +39,9 @@ Page({
       },
       success: res => {
         let result = res.data.result
+
+        console.log(result)
+
         let now = result.now
 
         let temp = now.temp
@@ -46,24 +50,31 @@ Page({
 
         let bgColor = weatherColorMap[weather]
 
-        console.log(temp, weather, weatherZh)
+        let nowHour = new Date().getHours()
+        let future = result.forecast
+        for (let i in future) {
+          future[i].time = (i * 3 + nowHour) % 24 + '时'
+        }
+        future[0].time = '现在'
+        console.log(future)
 
         this.setData({
           nowTemp: temp,
           nowWeather: weather,
           nowWeatherZh: weatherZh,
-          bgColor: bgColor
+          bgColor: bgColor,
+          futureWeathers: future
         })
-        console.log(weatherColorMap[weather])
+        
         wx.setNavigationBarColor({
           frontColor: '#000000',
           backgroundColor: bgColor,
         })
-        wx.setBackgroundColor({
-          backgroundColor: bgColor,
-          backgroundColorTop: bgColor,
-          backgroundColorBottom: '#ffffff'
-        })
+        // wx.setBackgroundColor({
+        //   backgroundColor: bgColor,
+        //   backgroundColorTop: bgColor,
+        //   backgroundColorBottom: '#ffffff'
+        // })
       },
       complete: res => {
         callback && callback()

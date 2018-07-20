@@ -32,6 +32,7 @@
   justify-content: center;
   align-items: center;
   margin-top: 40rpx;
+  margin-bottom: 40rpx;
 }
 .timetips-icon {
   width: 36rpx;
@@ -42,4 +43,34 @@
   font-size: 30rpx;
   line-height: 42rpx;
   opacity: 0.5;
+}
+
+.future {
+  display: flex;
+}
+
+.future-item {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: center;
+  width: 120rpx;
+}
+
+.future-time {
+  margin-top: 50rpx;
+  font-size: 30rpx;
+  line-height: 42rpx;
+}
+
+.future-temp {
+  margin-top: 50rpx;
+  font-size: 30rpx;
+  line-height: 56rpx;
+}
+
+.future-item image {
+  margin-top: 50rpx;
+  width: 60rpx;
+  height: 60rpx;
 }
