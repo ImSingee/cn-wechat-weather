@@ -74,3 +74,31 @@
   width: 60rpx;
   height: 60rpx;
 }
+
+.weather-today {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  height: 60rpx;
+  width: 100%;
+  bottom: 0;
+  font-size: 30rpx;
+  line-height: 42rpx;
+  opacity: 0.5;
+}
+.weather-today .date {
+  padding-left: 20rpx;
+}
+
+.weather-today .weather-temp {
+  flex-grow: 1;
+  text-align: right;
+  padding-right: 20rpx;
+}
+
+.weather-today image {
+  height: 24rpx;
+  width: 13rpx;
+  padding-right: 20rpx;
+}

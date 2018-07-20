@@ -21,7 +21,12 @@ Page({
     nowWeather: 'sunny',
     nowWeatherZh: '晴天',
     bgColor: '#ffffff',
-    futureWeathers: []
+    futureWeathers: [],
+    todayTemp: {
+      minTemp: 10,
+      maxTemp: 20
+    },
+    todayDate: '2018-07-20'
   },
   onLoad() {
     this.getNow()
@@ -44,6 +49,7 @@ Page({
 
         this.setNow(result)
         this.setHourlyWeather(result)
+        this.setToday(result)
       },
       complete: res => {
         callback && callback()
@@ -88,6 +94,15 @@ Page({
 
     this.setData({
       futureWeathers: future
+    })
+  },
+  setToday(result) {
+    let today = result.today
+    let date = new Date()
+    let todayDate = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
+    this.setData({
+      todayTemp: today,
+      todayDate
     })
   }
 })
