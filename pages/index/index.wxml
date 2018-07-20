@@ -3,3 +3,9 @@
   <view class="weather">{{ nowWeatherZh }}</view>
   <image class="weather-bg" src="/images/{{ nowWeather }}-bg.png" mode="scaleToFill"></image>
 </view>
+<view>
+  <view class="timetips">
+    <image src="/images/time-icon.png" class="timetips-icon"></image>
+    <text class="timetips-text">未来 24 小时天气预报</text>
+  </view>
+</view>

@@ -25,13 +25,6 @@ Page({
   onLoad() {
     this.getNow()
   },
-  onShow(){
-    wx.setBackgroundColor({
-      backgroundColor: this.bgColor,
-      backgroundColorTop: this.bgColor,
-      backgroundColorBottom: '#ffffff'
-    })
-  },
   onPullDownRefresh(){
     this.getNow(() => {
       wx.stopPullDownRefresh()
