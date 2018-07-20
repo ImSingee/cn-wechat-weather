@@ -14,7 +14,7 @@
       <view wx:for="{{ futureWeathers }}" wx:key="id" class="future-item">
         <view class="future-time">{{ item.time }}</view>
         <image src="/images/{{ item.weather }}-icon.png"></image>
-        <view class="future-temp">{{ item.temp }}</view>
+        <view class="future-temp">{{ item.temp }}°</view>
       </view>
     </view>
   </scroll-view>
