@@ -19,9 +19,25 @@ Page({
   data: {
     nowTemp: 12,
     nowWeather: 'sunny',
-    nowWeatherZh: '晴天'
+    nowWeatherZh: '晴天',
+    bgColor: '#ffffff'
   },
   onLoad() {
+    this.getNow()
+  },
+  onShow(){
+    wx.setBackgroundColor({
+      backgroundColor: this.bgColor,
+      backgroundColorTop: this.bgColor,
+      backgroundColorBottom: '#ffffff'
+    })
+  },
+  onPullDownRefresh(){
+    this.getNow(() => {
+      wx.stopPullDownRefresh()
+    })
+  },
+  getNow(callback){
     wx.request({
       url: 'https://test-miniprogram.com/api/weather/now',
       data: {
@@ -35,17 +51,29 @@ Page({
         let weather = now.weather
         let weatherZh = weatherMap[weather]
 
+        let bgColor = weatherColorMap[weather]
+
         console.log(temp, weather, weatherZh)
 
         this.setData({
           nowTemp: temp,
           nowWeather: weather,
-          nowWeatherZh: weatherZh
+          nowWeatherZh: weatherZh,
+          bgColor: bgColor
         })
+        console.log(weatherColorMap[weather])
         wx.setNavigationBarColor({
           frontColor: '#000000',
-          backgroundColor: weatherColorMap[weather],
+          backgroundColor: bgColor,
         })
+        wx.setBackgroundColor({
+          backgroundColor: bgColor,
+          backgroundColorTop: bgColor,
+          backgroundColorBottom: '#ffffff'
+        })
+      },
+      complete: res => {
+        callback && callback()
       }
     })
   }
