@@ -42,43 +42,52 @@ Page({
 
         console.log(result)
 
-        let now = result.now
-
-        let temp = now.temp
-        let weather = now.weather
-        let weatherZh = weatherMap[weather]
-
-        let bgColor = weatherColorMap[weather]
-
-        let nowHour = new Date().getHours()
-        let future = result.forecast
-        for (let i in future) {
-          future[i].time = (i * 3 + nowHour) % 24 + '时'
-        }
-        future[0].time = '现在'
-        console.log(future)
-
-        this.setData({
-          nowTemp: temp,
-          nowWeather: weather,
-          nowWeatherZh: weatherZh,
-          bgColor: bgColor,
-          futureWeathers: future
-        })
-        
-        wx.setNavigationBarColor({
-          frontColor: '#000000',
-          backgroundColor: bgColor,
-        })
-        // wx.setBackgroundColor({
-        //   backgroundColor: bgColor,
-        //   backgroundColorTop: bgColor,
-        //   backgroundColorBottom: '#ffffff'
-        // })
+        this.setNow(result)
+        this.setHourlyWeather(result)
       },
       complete: res => {
         callback && callback()
       }
+    })
+  },
+  setNow(result) {
+    let now = result.now
+    console.log(now)
+
+    let temp = now.temp
+    let weather = now.weather
+    let weatherZh = weatherMap[weather]
+
+    let bgColor = weatherColorMap[weather]
+
+    this.setData({
+      nowTemp: temp,
+      nowWeather: weather,
+      nowWeatherZh: weatherZh,
+      bgColor: bgColor
+    })
+
+    wx.setNavigationBarColor({
+      frontColor: '#000000',
+      backgroundColor: bgColor,
+    })
+    // wx.setBackgroundColor({
+    //   backgroundColor: bgColor,
+    //   backgroundColorTop: bgColor,
+    //   backgroundColorBottom: '#ffffff'
+    // })
+  },
+  setHourlyWeather(result) {
+    let nowHour = new Date().getHours()
+    let future = result.forecast
+    for (let i in future) {
+      future[i].time = (i * 3 + nowHour) % 24 + '时'
+    }
+    future[0].time = '现在'
+    console.log(future)
+
+    this.setData({
+      futureWeathers: future
     })
   }
 })
