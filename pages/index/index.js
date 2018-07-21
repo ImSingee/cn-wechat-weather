@@ -30,12 +30,15 @@ Page({
     },
     todayDate: '2018-07-20',
     city: '广州市',
-    locationAuth: true
+    locationAuth: false
   },
   onLoad() {
     this.qqmapsdk = new QQMapWX({
       key: 'YR2BZ-FKTCO-TBMWY-S2SGM-V3JDK-ANF6Y'
     })
+  },
+  onShow() {
+    console.log('onShow')
     this.onTapGetLocation()
   },
   onPullDownRefresh(){
@@ -142,13 +145,16 @@ Page({
           content: '需要位置权限才能获取当前位置',
           showCancel: false
         })
+      },
+      complete: () => {
+        this.refreshSettings()
       }
     })
   },
   refreshSettings() {
     wx.getSetting({
       success: res => {
-        let locationAuth = res.authSetting["scope.userLocation"] !== false
+        let locationAuth = res.authSetting["scope.userLocation"] === true
         this.setData({
           locationAuth
         })
