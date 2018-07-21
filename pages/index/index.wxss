@@ -23,6 +23,10 @@
   align-items: center;
 }
 
+.weather-location-choose {
+  display: none;
+}
+
 .weather-location-icon {
   width: 21rpx;
   height: 30rpx;
