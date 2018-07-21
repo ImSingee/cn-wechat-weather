@@ -29,7 +29,8 @@ Page({
       maxTemp: 20
     },
     todayDate: '2018-07-20',
-    city: '广州市'
+    city: '广州市',
+    locationAuth: true
   },
   onLoad() {
     this.qqmapsdk = new QQMapWX({
@@ -58,6 +59,7 @@ Page({
         this.setToday(result)
       },
       complete: res => {
+        this.refreshSettings()
         callback && callback()
       }
     })
@@ -139,6 +141,16 @@ Page({
           title: '权限被拒绝',
           content: '需要位置权限才能获取当前位置',
           showCancel: false
+        })
+      }
+    })
+  },
+  refreshSettings() {
+    wx.getSetting({
+      success: res => {
+        let locationAuth = res.authSetting["scope.userLocation"] !== false
+        this.setData({
+          locationAuth
         })
       }
     })

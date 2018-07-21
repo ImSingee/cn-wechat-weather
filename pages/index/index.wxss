@@ -27,6 +27,16 @@
   display: none;
 }
 
+.weather-location-auth {
+  font-size: 30rpx;
+  line-height: 42rpx;
+  background: none;
+}
+
+.weather-location-auth::after {
+  border: none;
+}
+
 .weather-location-icon {
   width: 21rpx;
   height: 30rpx;
