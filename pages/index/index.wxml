@@ -4,7 +4,7 @@
     <image class="weather-location-icon" src="/images/location-icon.png"></image>
     <view>广州市</view>
   </view>
-  <view class="weather-location-choose">点击获取当前位置</view>
+  <view class="weather-location-choose" bindtap="onTapGetLocation">点击获取当前位置</view>
 </view>
   <view class="temp">{{ nowTemp }}°</view>
   <view class="weather">{{ nowWeatherZh }}</view>

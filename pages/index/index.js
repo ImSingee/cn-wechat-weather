@@ -109,5 +109,19 @@ Page({
     wx.navigateTo({
       url: '/pages/list/list',
     })
+  },
+  onTapGetLocation() {
+    wx.getLocation({
+      success: function(res) {
+        console.log(res)
+      },
+      fail: res => {
+        wx.showModal({
+          title: '权限被拒绝',
+          content: '需要位置权限才能获取当前位置',
+          showCancel: false
+        })
+      }
+    })
   }
 })
