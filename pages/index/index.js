@@ -33,14 +33,39 @@ Page({
     locationAuth: false
   },
   onLoad() {
+    console.log("onLoad")
     this.qqmapsdk = new QQMapWX({
       key: 'YR2BZ-FKTCO-TBMWY-S2SGM-V3JDK-ANF6Y'
     })
+  },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    console.log("onReady")
   },
   onShow() {
     console.log('onShow')
     this.onTapGetLocation()
   },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+    console.log("onHide")
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+    console.log("onUnload")
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
   onPullDownRefresh(){
     this.getNow(() => {
       wx.stopPullDownRefresh()
